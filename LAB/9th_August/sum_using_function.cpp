@@ -3,7 +3,7 @@
 #include<iostream>
 using namespace std;
 
-int sum(int arr[],int n){
+int row_sum(int arr[],int n){
     int sum=0;
     for(int i=0;i<n;i++){
         sum+=arr[i];
@@ -25,7 +25,7 @@ int main(){
 
     cout<<"The sum of each row is: ";
     for(int i=0;i<n;i++){
-        cout<<sum(arr[i],m)<<" ";
+        cout<<row_sum(arr[i],m)<<" ";
     }
     cout<<endl;
     cout<<"The sum of each column is: ";
@@ -34,7 +34,7 @@ int main(){
         for(int j=0;j<n;j++){
             temp[j]=arr[j][i];
         }
-        cout<<sum(temp,n)<<" ";
+        cout<<row_sum(temp,n)<<" ";
     }
     cout<<endl;
     return 0;
