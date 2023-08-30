@@ -49,7 +49,7 @@ int main()
     while (!q.empty())
     {
         int level_size = q.size();
-        maxNodesVisited += level_size - 1;  
+        maxNodesVisited += level_size - 1;  +
 
         for (int i = level_size - 1; i >= 0; i--)
         {
