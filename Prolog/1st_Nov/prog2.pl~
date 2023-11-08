@@ -1,0 +1,26 @@
+% Define the layout of the Wumpus World (you can customize t
+pit(1, 1).
+pit(2, 1).
+wumpus(1, 2).
+
+% Define a predicate to check if a cell is safe (no pits or Wumpus).
+safe(X, Y) :-
+    \+ pit(X, Y),      % The cell does not contain a pit
+    \+ wumpus(X, Y),   % The cell does not contain the Wumpus
+    adjacent_safe(X, Y). % The adjacent cells are also safe
+
+% Define a predicate to check if adjacent cells are safe.
+adjacent_safe(X, Y) :-
+    X1 is X + 1, X2 is X - 1, Y1 is Y + 1, Y2 is Y - 1,
+    (
+        \+ pit(X1, Y), \+ wumpus(X1, Y); % Right cell
+        \+ pit(X, Y1), \+ wumpus(X, Y1); % Up cell
+        \+ pit(X2, Y), \+ wumpus(X2, Y); % Left cell
+        \+ pit(X, Y2), \+ wumpus(X, Y2)  % Down cell
+    ).
+
+% Define a predicate to check if cell (2, 2) is safe.
+%is_safe_2_2 :-
+ %   safe(2, 2).
+is_safe(X, Y) :-
+    safe(X, Y).

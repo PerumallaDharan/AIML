@@ -1,0 +1,9 @@
+equal(A,B) :- A=B.
+equal(B,C) :- B=C.
+equal(C,A) :- C=A.
+
+is_equilateral(A, B, C) :- equal(A,B) , equal(B,C) , equal(C,A).
+
+is_isosceles(A, B, C) :- equal(A,B),\equal(C,A) ;
+                         equal(B,C),\equal(B,A) ;
+                         equal(C,A),\equal(B,C).
